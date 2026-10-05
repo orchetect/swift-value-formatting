@@ -14,6 +14,7 @@ func formatted<S: FormatStyle>(_ value: S.FormatInput, format: S) -> S.FormatOut
     format.format(value)
 }
 
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, watchOS 8.0, *)
 extension SortComparator where Self == String.Comparator {
     /// A comparator available cross-platform for testing (Apple, Linux, etc.)
     static var unitTestComparator: Self {
