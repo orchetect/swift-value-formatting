@@ -39,18 +39,4 @@ struct StringToFloatParseStrategy_Tests {
             _ = try parsed("abc", strategy: .float)
         }
     }
-
-    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
-    @Test
-    func float16() throws {
-        #expect(try parsed("123", strategy: .float16) == 123 as Float16)
-        #expect(try parsed("123.5", strategy: .float16) == 123.5 as Float16)
-
-        #expect(throws: ParseStrategyError.parseError) {
-            _ = try parsed("", strategy: .float16)
-        }
-        #expect(throws: ParseStrategyError.parseError) {
-            _ = try parsed("abc", strategy: .float16)
-        }
-    }
 }

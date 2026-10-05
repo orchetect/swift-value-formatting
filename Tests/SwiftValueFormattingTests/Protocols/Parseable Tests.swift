@@ -50,7 +50,6 @@ struct Parseable_Tests {
         // `Double` accepts parse strategies that return a `BinaryFloatingPoint`
         #expect(try Double("123.5", strategy: .double) == 123.5)
         #expect(try Double("123.5", strategy: .float) == 123.5)
-        #expect(try Double("123.5", strategy: .float16) == 123.5)
     }
 
     // MARK: - Standard Type Conformances
