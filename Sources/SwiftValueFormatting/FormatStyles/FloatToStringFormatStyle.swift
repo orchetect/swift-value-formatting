@@ -46,13 +46,3 @@ extension FormatStyle where Self == FloatToStringFormatStyle<Float> {
         Self()
     }
 }
-
-@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
-extension FormatStyle where Self == FloatToStringFormatStyle<Float16> {
-    /// Format style which converts a `Float16` value to a `String` value.
-    @inlinable
-    nonisolated
-    public static var string: Self {
-        Self()
-    }
-}
