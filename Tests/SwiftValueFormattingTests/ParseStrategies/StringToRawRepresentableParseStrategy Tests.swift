@@ -14,6 +14,7 @@ import SwiftValueFormatting
 @Suite
 struct StringToRawRepresentableParseStrategy_Tests {
     /// Tests using the `<TYPE>.rawValueParseStrategy` static constructor
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func rawRepresentableExtension() throws {
         #expect(try parsed("foo", strategy: MyEnum.rawValueParseStrategy) == .foo)

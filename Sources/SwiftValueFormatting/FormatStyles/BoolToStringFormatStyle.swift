@@ -30,6 +30,7 @@ extension BoolToStringFormatStyle: FormatStyle {
 
 // MARK: - `FormatStyle` Static Constructor
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FormatStyle where Self == BoolToStringFormatStyle {
     /// Format style which converts a `Bool` value to a `String` value.
     @inlinable

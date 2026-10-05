@@ -16,11 +16,13 @@ struct Parseable_Tests {
     // there are other relevant standard types, but testing all of them is not necessary.
     // this test is just a form of a staging area to establish or check behaviors.
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func builtIn_Decimal() throws {
         #expect(try Decimal("1.23", strategy: Decimal.ParseStrategy(format: .number)) == 1.23)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func builtIn_Int() throws {
         // `Int` accepts parse strategies that return a `BinaryInteger`
@@ -31,6 +33,7 @@ struct Parseable_Tests {
         #expect(try Int("123", strategy: .int64) == 123)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func builtIn_Int32() throws {
         // various `BinaryInteger` types including `Int32` accept parse strategies that return a `BinaryInteger`
@@ -41,6 +44,7 @@ struct Parseable_Tests {
         #expect(try Int32("123", strategy: .int64) == 123)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func builtIn_Double() throws {
         // `Double` accepts parse strategies that return a `BinaryFloatingPoint`
@@ -51,26 +55,31 @@ struct Parseable_Tests {
 
     // MARK: - Standard Type Conformances
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func parseable_String() throws {
         #expect(try String("foo", strategy: .string) == "foo")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func parseable_StringArray() throws {
         #expect(try [String]("foo,bar", strategy: .stringArray) == ["foo", "bar"])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func parseable_IntArray() throws {
         #expect(try [Int]("1,2,3", strategy: [Int].stringParseStrategy(transform: .int)) == [1, 2, 3])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func parseable_StringSet() throws {
         #expect(try Set<String>("foo,bar", strategy: .stringSet) == ["foo", "bar"])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func parseable_IntSet() throws {
         #expect(try Set<Int>("1,2,3", strategy: Set<Int>.stringParseStrategy(transform: .int)) == [1, 2, 3])

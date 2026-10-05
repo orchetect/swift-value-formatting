@@ -48,6 +48,7 @@ extension StringToStringParseStrategy: ParseStrategy {
 
 // MARK: - ParseOption
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension StringToStringParseStrategy {
     public enum ParseOption: String, Equatable, Hashable, Sendable, Codable {
         /// Reject empty strings.
@@ -61,6 +62,7 @@ extension StringToStringParseStrategy {
 
 // MARK: - Composition
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension StringToStringParseStrategy {
     /// Modifies a parse strategy to replace its parse options with the specified options.
     @inlinable
@@ -74,6 +76,7 @@ extension StringToStringParseStrategy {
 
 // MARK: - `ParseStrategy` Static Constructors
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension ParseStrategy where Self == StringToStringParseStrategy {
     /// Parse strategy which validates a `String` value and subsequently returns it if the input value
     /// passes validation, otherwise an error is thrown if validation does not pass.

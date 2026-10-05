@@ -56,6 +56,7 @@ extension StringToIntParseStrategy: ParseStrategy {
 
 // MARK: - ParseOption
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension StringToIntParseStrategy {
     public enum ParseOption: String, Equatable, Hashable, Sendable, Codable {
         /// Allow parsing strings that contain non-whole number floating-point values.
@@ -68,6 +69,7 @@ extension StringToIntParseStrategy {
 
 // MARK: - Composition
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension StringToIntParseStrategy {
     /// Modifies a parse strategy to replace its parse options with the specified options.
     @inlinable
@@ -81,6 +83,7 @@ extension StringToIntParseStrategy {
 
 // MARK: - `ParseStrategy` Static Constructors
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension ParseStrategy where Self == StringToIntParseStrategy<Int> {
     /// Parse strategy which converts a `String` value to an `Int` value.
     /// This strategy is also capable of parsing floating-point numbers and booleans from strings.
@@ -99,6 +102,7 @@ extension ParseStrategy where Self == StringToIntParseStrategy<Int> {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension ParseStrategy where Self == StringToIntParseStrategy<Int8> {
     /// Parse strategy which converts a `String` value to an `Int8` value.
     /// This strategy is also capable of parsing floating-point numbers and booleans from strings.
@@ -117,6 +121,7 @@ extension ParseStrategy where Self == StringToIntParseStrategy<Int8> {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension ParseStrategy where Self == StringToIntParseStrategy<Int16> {
     /// Parse strategy which converts a `String` value to an `Int16` value.
     /// This strategy is also capable of parsing floating-point numbers and booleans from strings.
@@ -135,6 +140,7 @@ extension ParseStrategy where Self == StringToIntParseStrategy<Int16> {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension ParseStrategy where Self == StringToIntParseStrategy<Int32> {
     /// Parse strategy which converts a `String` value to an `Int32` value.
     /// This strategy is also capable of parsing floating-point numbers and booleans from strings.
@@ -153,6 +159,7 @@ extension ParseStrategy where Self == StringToIntParseStrategy<Int32> {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension ParseStrategy where Self == StringToIntParseStrategy<Int64> {
     /// Parse strategy which converts a `String` value to an `Int64` value.
     /// This strategy is also capable of parsing floating-point numbers and booleans from strings.
@@ -171,6 +178,7 @@ extension ParseStrategy where Self == StringToIntParseStrategy<Int64> {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension ParseStrategy where Self == StringToIntParseStrategy<UInt> {
     /// Parse strategy which converts a `String` value to a `UInt` value.
     /// This strategy is also capable of parsing floating-point numbers and booleans from strings.
@@ -189,6 +197,7 @@ extension ParseStrategy where Self == StringToIntParseStrategy<UInt> {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension ParseStrategy where Self == StringToIntParseStrategy<UInt8> {
     /// Parse strategy which converts a `String` value to a `UInt8` value.
     /// This strategy is also capable of parsing floating-point numbers and booleans from strings.
@@ -207,6 +216,7 @@ extension ParseStrategy where Self == StringToIntParseStrategy<UInt8> {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension ParseStrategy where Self == StringToIntParseStrategy<UInt16> {
     /// Parse strategy which converts a `String` value to a `UInt16` value.
     /// This strategy is also capable of parsing floating-point numbers and booleans from strings.
@@ -225,6 +235,7 @@ extension ParseStrategy where Self == StringToIntParseStrategy<UInt16> {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension ParseStrategy where Self == StringToIntParseStrategy<UInt32> {
     /// Parse strategy which converts a `String` value to a `UInt32` value.
     /// This strategy is also capable of parsing floating-point numbers and booleans from strings.
@@ -243,6 +254,7 @@ extension ParseStrategy where Self == StringToIntParseStrategy<UInt32> {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension ParseStrategy where Self == StringToIntParseStrategy<UInt64> {
     /// Parse strategy which converts a `String` value to a `UInt64` value.
     /// This strategy is also capable of parsing floating-point numbers and booleans from strings.

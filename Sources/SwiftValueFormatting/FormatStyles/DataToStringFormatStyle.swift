@@ -42,6 +42,7 @@ extension DataToStringFormatStyle: FormatStyle {
 
 // MARK: - Encoding
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension DataToStringFormatStyle {
     public enum Encoding: String, Equatable, Hashable, Sendable, Codable, CaseIterable {
         /// Base64 encoding.
@@ -51,6 +52,7 @@ extension DataToStringFormatStyle {
 
 // MARK: - Composition
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension DataToStringFormatStyle {
     /// Modifies a format style to use the specified string encoding format.
     @inlinable
@@ -64,6 +66,7 @@ extension DataToStringFormatStyle {
 
 // MARK: - `FormatStyle` Static Constructors
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FormatStyle where Self == DataToStringFormatStyle {
     /// Format style which converts a `Data` value to a `String` value using Base64 encoding
     /// by default. The encoding can be changed by chaining this with the `encoding(_:)` method.

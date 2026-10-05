@@ -12,6 +12,7 @@ import SwiftValueFormatting
 /// - String parsing results
 @Suite
 struct StringToIntParseStrategy_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int() throws {
         #expect(try parsed("123", strategy: .int) == 123 as Int)
@@ -24,26 +25,30 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
-    // (Since this initializer is shared for all associated integer types, we don't need to repeat this
-    // test for every integer type in this test suite.)
+    /// (Since this initializer is shared for all associated integer types, we don't need to repeat this
+    /// test for every integer type in this test suite.)
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int_init_encoding() throws {
         #expect(StringToIntParseStrategy<Int>(options: []).options == [])
         #expect(StringToIntParseStrategy<Int>(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int_staticConstructors() throws {
         #expect(StringToIntParseStrategy.int(options: []).options == [])
         #expect(StringToIntParseStrategy.int(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int_encodingComposition() throws {
         #expect(StringToIntParseStrategy.int.options([]).options == [])
         #expect(StringToIntParseStrategy.int.options([.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int8() throws {
         #expect(try parsed("123", strategy: .int8) == 123 as Int8)
@@ -56,18 +61,21 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int8_staticConstructors() throws {
         #expect(StringToIntParseStrategy.int8(options: []).options == [])
         #expect(StringToIntParseStrategy.int8(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int8_encodingComposition() throws {
         #expect(StringToIntParseStrategy.int8.options([]).options == [])
         #expect(StringToIntParseStrategy.int8.options([.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int16() throws {
         #expect(try parsed("123", strategy: .int16) == 123 as Int16)
@@ -80,18 +88,21 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int16_staticConstructors() throws {
         #expect(StringToIntParseStrategy.int16(options: []).options == [])
         #expect(StringToIntParseStrategy.int16(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int16_encodingComposition() throws {
         #expect(StringToIntParseStrategy.int16.options([]).options == [])
         #expect(StringToIntParseStrategy.int16.options([.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int32() throws {
         #expect(try parsed("123", strategy: .int32) == 123 as Int32)
@@ -104,18 +115,21 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int32_staticConstructors() throws {
         #expect(StringToIntParseStrategy.int32(options: []).options == [])
         #expect(StringToIntParseStrategy.int32(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int32_encodingComposition() throws {
         #expect(StringToIntParseStrategy.int32.options([]).options == [])
         #expect(StringToIntParseStrategy.int32.options([.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int64() throws {
         #expect(try parsed("123", strategy: .int64) == 123 as Int64)
@@ -128,18 +142,21 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int64_staticConstructors() throws {
         #expect(StringToIntParseStrategy.int64(options: []).options == [])
         #expect(StringToIntParseStrategy.int64(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int64_encodingComposition() throws {
         #expect(StringToIntParseStrategy.int64.options([]).options == [])
         #expect(StringToIntParseStrategy.int64.options([.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt() throws {
         #expect(try parsed("123", strategy: .uInt) == 123 as UInt)
@@ -152,18 +169,21 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt_staticConstructors() throws {
         #expect(StringToIntParseStrategy.uInt(options: []).options == [])
         #expect(StringToIntParseStrategy.uInt(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt_encodingComposition() throws {
         #expect(StringToIntParseStrategy.uInt.options([]).options == [])
         #expect(StringToIntParseStrategy.uInt.options([.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt8() throws {
         #expect(try parsed("123", strategy: .uInt8) == 123 as UInt8)
@@ -176,18 +196,21 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt8_staticConstructors() throws {
         #expect(StringToIntParseStrategy.uInt8(options: []).options == [])
         #expect(StringToIntParseStrategy.uInt8(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt8_encodingComposition() throws {
         #expect(StringToIntParseStrategy.uInt8.options([]).options == [])
         #expect(StringToIntParseStrategy.uInt8.options([.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt16() throws {
         #expect(try parsed("123", strategy: .uInt16) == 123 as UInt16)
@@ -200,18 +223,21 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt16_staticConstructors() throws {
         #expect(StringToIntParseStrategy.uInt16(options: []).options == [])
         #expect(StringToIntParseStrategy.uInt16(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt16_encodingComposition() throws {
         #expect(StringToIntParseStrategy.uInt16.options([]).options == [])
         #expect(StringToIntParseStrategy.uInt16.options([.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt32() throws {
         #expect(try parsed("123", strategy: .uInt32) == 123 as UInt32)
@@ -224,18 +250,21 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt32_staticConstructors() throws {
         #expect(StringToIntParseStrategy.uInt32(options: []).options == [])
         #expect(StringToIntParseStrategy.uInt32(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt32_encodingComposition() throws {
         #expect(StringToIntParseStrategy.uInt32.options([]).options == [])
         #expect(StringToIntParseStrategy.uInt32.options([.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt64() throws {
         #expect(try parsed("123", strategy: .uInt64) == 123 as UInt64)
@@ -248,12 +277,14 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt64_staticConstructors() throws {
         #expect(StringToIntParseStrategy.uInt64(options: []).options == [])
         #expect(StringToIntParseStrategy.uInt64(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt64_encodingComposition() throws {
         #expect(StringToIntParseStrategy.uInt64.options([]).options == [])
@@ -262,6 +293,7 @@ struct StringToIntParseStrategy_Tests {
 
     // MARK: - `ParseOption`
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int_noOptions() throws {
         let options: Set<StringToIntParseStrategy<Int>.ParseOption> = []
@@ -313,6 +345,7 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int_allowNonWholeFloats() throws {
         let options: Set<StringToIntParseStrategy<Int>.ParseOption> = [.allowNonWholeFloats]
@@ -356,6 +389,7 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int_allowBool() throws {
         let options: Set<StringToIntParseStrategy<Int>.ParseOption> = [.allowBool]
@@ -407,6 +441,7 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int_allowNonWholeFloats_allowBool() throws {
         let options: Set<StringToIntParseStrategy<Int>.ParseOption> = [.allowNonWholeFloats, .allowBool]

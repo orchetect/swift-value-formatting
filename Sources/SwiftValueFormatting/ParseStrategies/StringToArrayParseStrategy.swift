@@ -46,6 +46,7 @@ extension StringToArrayParseStrategy: ParseStrategy {
 
 // MARK: - Composition
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension StringToArrayParseStrategy {
     /// Modifies a parse strategy to use the specified element separator.
     @inlinable

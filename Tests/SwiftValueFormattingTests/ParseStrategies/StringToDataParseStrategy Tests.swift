@@ -16,6 +16,7 @@ import SwiftValueFormatting
 /// - String parsing results
 @Suite
 struct StringToDataParseStrategy_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func concreteType_defaultEncoding() throws {
         // default uses Base64
@@ -29,6 +30,7 @@ struct StringToDataParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func staticConstructor_defaultEncoding() throws {
         // default uses Base64
@@ -36,12 +38,14 @@ struct StringToDataParseStrategy_Tests {
         #expect(try parsed("AQI=", strategy: .data) == Data([0x01, 0x02]))
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func composition_encoding() throws {
         #expect(try parsed("", strategy: .data.encoding(.base64)) == Data())
         #expect(try parsed("AQI=", strategy: .data.encoding(.base64)) == Data([0x01, 0x02]))
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test(arguments: StringToDataParseStrategy.Encoding.allCases)
     func allEncodings_constructors(encoding: StringToDataParseStrategy.Encoding) throws {
         switch encoding {
@@ -53,6 +57,7 @@ struct StringToDataParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test(arguments: StringToDataParseStrategy.Encoding.allCases)
     func allEncodings_parse(encoding: StringToDataParseStrategy.Encoding) throws {
         // use a switch case on allCases for compiler enforcement of testing all encodings

@@ -27,6 +27,7 @@ extension FloatToStringFormatStyle: FormatStyle {
 
 // MARK: - `FormatStyle` Static Constructors
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FormatStyle where Self == FloatToStringFormatStyle<Double> {
     /// Format style which converts a `Double` value to a `String` value.
     @inlinable
@@ -36,6 +37,7 @@ extension FormatStyle where Self == FloatToStringFormatStyle<Double> {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FormatStyle where Self == FloatToStringFormatStyle<Float> {
     /// Format style which converts a `Float` value to a `String` value.
     @inlinable
@@ -45,6 +47,7 @@ extension FormatStyle where Self == FloatToStringFormatStyle<Float> {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FormatStyle where Self == FloatToStringFormatStyle<Float16> {
     /// Format style which converts a `Float16` value to a `String` value.
     @inlinable

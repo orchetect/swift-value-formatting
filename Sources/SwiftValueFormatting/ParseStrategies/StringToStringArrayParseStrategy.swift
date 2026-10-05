@@ -39,6 +39,7 @@ extension StringToStringArrayParseStrategy: ParseStrategy {
 
 // MARK: - Composition
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension StringToStringArrayParseStrategy {
     /// Modifies a parse strategy to use the specified element separator.
     @inlinable
@@ -52,6 +53,7 @@ extension StringToStringArrayParseStrategy {
 
 // MARK: - `ParseStrategy` Static Constructors
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension ParseStrategy where Self == StringToStringArrayParseStrategy {
     /// Parse strategy which parses a delimited a `String` value and produces an array of `String` values.
     @inlinable

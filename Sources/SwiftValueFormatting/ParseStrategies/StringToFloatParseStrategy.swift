@@ -30,6 +30,7 @@ extension StringToFloatParseStrategy: ParseStrategy {
 
 // MARK: - `ParseStrategy` Static Constructor
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension ParseStrategy where Self == StringToFloatParseStrategy {
     /// Parse strategy which converts a `String` value to a `Float` value.
     @inlinable

@@ -44,6 +44,7 @@ extension StringToDataParseStrategy: ParseStrategy {
 
 // MARK: - Encoding
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension StringToDataParseStrategy {
     public enum Encoding: String, Equatable, Hashable, Sendable, Codable, CaseIterable {
         /// Base64 encoding.
@@ -53,6 +54,7 @@ extension StringToDataParseStrategy {
 
 // MARK: - Composition
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension StringToDataParseStrategy {
     /// Modifies a parse strategy to use the specified string encoding format.
     @inlinable
@@ -66,6 +68,7 @@ extension StringToDataParseStrategy {
 
 // MARK: - `ParseStrategy` Static Constructors
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension ParseStrategy where Self == StringToDataParseStrategy {
     /// Parse strategy which converts an encoded `String` value to a `Data` value using Base64 encoding
     /// by default. The encoding can be changed by chaining this with the `encoding(_:)` method.

@@ -26,6 +26,7 @@ import Foundation
 /// > Types in Foundation that implement this method may not implement it exactly the same way.
 /// > Some types use variations on the method that are bound to protocol-based generics instead of `Self`,
 /// > or add additional parameters.
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 public protocol Formattable {
     /// Formats the instance using the provided format style.
     ///
@@ -36,6 +37,7 @@ public protocol Formattable {
 
 // MARK: - Default Implementation
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension Formattable {
     public func formatted<S: FormatStyle>(_ format: S) -> S.FormatOutput where S.FormatInput == Self {
         format.format(self)

@@ -27,6 +27,7 @@ extension IntToStringFormatStyle: FormatStyle {
 
 // MARK: - `FormatStyle` Static Constructors
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FormatStyle where Self == IntToStringFormatStyle<Int> {
     /// Format style which converts an `Int` value to a `String` value.
     @inlinable
@@ -36,6 +37,7 @@ extension FormatStyle where Self == IntToStringFormatStyle<Int> {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FormatStyle where Self == IntToStringFormatStyle<Int8> {
     /// Format style which converts an `Int8` value to a `String` value.
     @inlinable
@@ -45,6 +47,7 @@ extension FormatStyle where Self == IntToStringFormatStyle<Int8> {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FormatStyle where Self == IntToStringFormatStyle<Int16> {
     /// Format style which converts an `Int16` value to a `String` value.
     @inlinable
@@ -54,6 +57,7 @@ extension FormatStyle where Self == IntToStringFormatStyle<Int16> {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FormatStyle where Self == IntToStringFormatStyle<Int32> {
     /// Format style which converts an `Int32` value to a `String` value.
     @inlinable
@@ -63,6 +67,7 @@ extension FormatStyle where Self == IntToStringFormatStyle<Int32> {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FormatStyle where Self == IntToStringFormatStyle<Int64> {
     /// Format style which converts an `Int64` value to a `String` value.
     @inlinable
@@ -72,6 +77,7 @@ extension FormatStyle where Self == IntToStringFormatStyle<Int64> {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FormatStyle where Self == IntToStringFormatStyle<UInt> {
     /// Format style which converts a `UInt` value to a `String` value.
     @inlinable
@@ -81,6 +87,7 @@ extension FormatStyle where Self == IntToStringFormatStyle<UInt> {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FormatStyle where Self == IntToStringFormatStyle<UInt8> {
     /// Format style which converts a `UInt8` value to a `String` value.
     @inlinable
@@ -90,6 +97,7 @@ extension FormatStyle where Self == IntToStringFormatStyle<UInt8> {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FormatStyle where Self == IntToStringFormatStyle<UInt16> {
     /// Format style which converts a `UInt16` value to a `String` value.
     @inlinable
@@ -99,6 +107,7 @@ extension FormatStyle where Self == IntToStringFormatStyle<UInt16> {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FormatStyle where Self == IntToStringFormatStyle<UInt32> {
     /// Format style which converts a `UInt32` value to a `String` value.
     @inlinable
@@ -108,6 +117,7 @@ extension FormatStyle where Self == IntToStringFormatStyle<UInt32> {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FormatStyle where Self == IntToStringFormatStyle<UInt64> {
     /// Format style which converts a `UInt64` value to a `String` value.
     @inlinable

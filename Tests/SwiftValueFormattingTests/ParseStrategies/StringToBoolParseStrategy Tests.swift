@@ -14,30 +14,35 @@ import SwiftValueFormatting
 /// - String parsing results
 @Suite
 struct StringToBoolParseStrategy_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func bool() throws {
         #expect(try parsed("true", strategy: .bool) == true)
         #expect(try parsed("false", strategy: .bool) == false)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_options() throws {
         #expect(StringToBoolParseStrategy(options: []).options == [])
         #expect(StringToBoolParseStrategy(options: [.allowOutOfBoundsNumbers]).options == [.allowOutOfBoundsNumbers])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func staticConstructors() throws {
         #expect(StringToBoolParseStrategy.bool(options: []).options == [])
         #expect(StringToBoolParseStrategy.bool(options: [.allowOutOfBoundsNumbers]).options == [.allowOutOfBoundsNumbers])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func optionsComposition() throws {
         #expect(StringToBoolParseStrategy.bool.options([]).options == [])
         #expect(StringToBoolParseStrategy.bool.options([.allowOutOfBoundsNumbers]).options == [.allowOutOfBoundsNumbers])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func bool_noOptions() throws {
         let options: Set<StringToBoolParseStrategy.ParseOption> = []
@@ -92,6 +97,7 @@ struct StringToBoolParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func bool_caseInsensitive() throws {
         let options: Set<StringToBoolParseStrategy.ParseOption> = [.caseInsensitive]
@@ -142,6 +148,7 @@ struct StringToBoolParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func bool_allowOutOfBoundsNumbers() throws {
         let options: Set<StringToBoolParseStrategy.ParseOption> = [.allowOutOfBoundsNumbers]
@@ -188,6 +195,7 @@ struct StringToBoolParseStrategy_Tests {
         #expect(try parsed("-1.5", strategy: .bool(options: options)) == false)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func bool_caseInsensitive_allowOutOfBoundsNumbers() throws {
         let options: Set<StringToBoolParseStrategy.ParseOption> = [.caseInsensitive, .allowOutOfBoundsNumbers]

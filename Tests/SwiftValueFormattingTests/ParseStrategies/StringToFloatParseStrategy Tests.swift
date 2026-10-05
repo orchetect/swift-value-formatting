@@ -12,6 +12,7 @@ import SwiftValueFormatting
 /// - String parsing results
 @Suite
 struct StringToFloatParseStrategy_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func double() throws {
         #expect(try parsed("123", strategy: .double) == 123 as Double)
@@ -25,6 +26,7 @@ struct StringToFloatParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func float() throws {
         #expect(try parsed("123", strategy: .float) == 123 as Float)
@@ -38,6 +40,7 @@ struct StringToFloatParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func float16() throws {
         #expect(try parsed("123", strategy: .float16) == 123 as Float16)

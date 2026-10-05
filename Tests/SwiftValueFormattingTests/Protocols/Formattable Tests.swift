@@ -16,6 +16,7 @@ struct Formattable_Tests {
     // there are other relevant standard types, but testing all of them is not necessary.
     // this test is just a form of a staging area to establish or check behaviors.
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func builtIn_Decimal() throws {
         #expect(
@@ -25,11 +26,13 @@ struct Formattable_Tests {
         )
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func builtIn_String() throws {
         #expect("foo".formatted(.string) == "foo")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func builtIn_Array() throws {
         #expect(
@@ -42,6 +45,7 @@ struct Formattable_Tests {
         )
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func builtIn_Set() throws {
         let formattedSet = Set([1, 2])
@@ -54,6 +58,7 @@ struct Formattable_Tests {
 
     // MARK: - Standard Type Conformances
 
+    // @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     // @Test
     // func formattable_<#TYPE#>() throws {
     //

@@ -26,6 +26,7 @@ import Foundation
 /// > Types in Foundation that implement this initializer may not implement it exactly the same way.
 /// > Some types use variations on the initializer that are bound to protocol-based generics instead of `Self`,
 /// > or add additional parameters.
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 public protocol Parseable {
     /// Creates and initializes a new instance by parsing an arbitrary type according to the provided parse
     /// strategy.
@@ -38,6 +39,7 @@ public protocol Parseable {
 
 // MARK: - Default Implementation
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension Parseable {
     public init<S: ParseStrategy>(_ value: S.ParseInput, strategy: S) throws where S.ParseOutput == Self {
         self = try strategy.parse(value)
@@ -50,6 +52,11 @@ extension Parseable {
 
 // `Int` and other `BinaryInteger` types already provide `formatted(_:)`
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension Array: Parseable { }
+
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension Set: Parseable { }
+
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension String: Parseable { }

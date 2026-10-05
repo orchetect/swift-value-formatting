@@ -9,6 +9,7 @@ import Testing
 import SwiftValueFormatting
 
 /// Wrapper method to allow testing `FormatStyle` static constructors.
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 func formatted<S: FormatStyle>(_ value: S.FormatInput, format: S) -> S.FormatOutput {
     format.format(value)
 }

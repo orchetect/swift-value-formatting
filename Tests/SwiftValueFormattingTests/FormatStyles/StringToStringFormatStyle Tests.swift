@@ -12,6 +12,7 @@ import SwiftValueFormatting
 /// - Basic string formatting results
 @Suite
 struct StringToStringFormatStyle_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func string() throws {
         #expect(formatted("", format: .string) == "")

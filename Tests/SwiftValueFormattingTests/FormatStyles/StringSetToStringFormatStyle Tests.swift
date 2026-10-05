@@ -13,6 +13,7 @@ import SwiftValueFormatting
 /// - Basic string formatting results
 @Suite
 struct StringSetToStringFormatStyle_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func concreteType_defaultSeparator() throws {
         let format = StringSetToStringFormatStyle()
@@ -25,6 +26,7 @@ struct StringSetToStringFormatStyle_Tests {
         #expect(c == "a,b" || c == "b,a")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func concreteType_customSeparator() throws {
         let format = StringSetToStringFormatStyle(separator: "|")
@@ -37,6 +39,7 @@ struct StringSetToStringFormatStyle_Tests {
         #expect(c == "a|b" || c == "b|a")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func staticConstructor_defaultSeparator() throws {
         let a = formatted(Set(["b"]), format: .string)
@@ -47,6 +50,7 @@ struct StringSetToStringFormatStyle_Tests {
         #expect(c == "a,b" || c == "b,a")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func staticConstructor_customSeparator() throws {
         let a = formatted(Set(["b"]), format: .string(separator: "|"))
@@ -57,6 +61,7 @@ struct StringSetToStringFormatStyle_Tests {
         #expect(c == "a|b" || c == "b|a")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test // TODO: might need to enable test only if locale language is English
     func staticConstructor_customSortComparator() throws {
         let a = formatted(Set(["b"]), format: .string(sortComparator: .localized))
@@ -67,6 +72,7 @@ struct StringSetToStringFormatStyle_Tests {
         #expect(c == "a,b,c")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test // TODO: might need to enable test only if locale language is English
     func staticConstructor_customSeparator_customSortComparator() throws {
         let a = formatted(Set(["b"]), format: .string(separator: "|", sortComparator: .localized))
@@ -77,6 +83,7 @@ struct StringSetToStringFormatStyle_Tests {
         #expect(c == "a|b|c")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func composition_separator() throws {
         let a = formatted(Set(["b"]), format: .string.separator("|"))
@@ -87,6 +94,7 @@ struct StringSetToStringFormatStyle_Tests {
         #expect(c == "a|b" || c == "b|a")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test // TODO: might need to enable test only if locale language is English
     func composition_separator_sortComparator() throws {
         let string = formatted(Set(["c", "a", "b"]), format: .string.separator("|").sortComparator(.localized))

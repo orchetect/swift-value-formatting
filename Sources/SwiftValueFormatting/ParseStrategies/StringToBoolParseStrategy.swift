@@ -59,6 +59,7 @@ extension StringToBoolParseStrategy: ParseStrategy {
 
 // MARK: - ParseOption
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension StringToBoolParseStrategy {
     public enum ParseOption: String, Equatable, Hashable, Sendable, Codable {
         /// String comparison is case-insensitive.
@@ -74,6 +75,7 @@ extension StringToBoolParseStrategy {
 
 // MARK: - Composition
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension StringToBoolParseStrategy {
     /// Modifies a parse strategy to replace its parse options with the specified options.
     @inlinable
@@ -87,6 +89,7 @@ extension StringToBoolParseStrategy {
 
 // MARK: - `ParseStrategy` Static Constructors
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension ParseStrategy where Self == StringToBoolParseStrategy {
     /// Parse strategy which converts a `String` value to a `Bool` value.
     @inlinable

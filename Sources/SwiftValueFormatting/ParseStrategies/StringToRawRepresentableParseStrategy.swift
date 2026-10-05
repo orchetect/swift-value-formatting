@@ -37,6 +37,7 @@ extension StringToRawRepresentableParseStrategy: ParseStrategy {
 
 // MARK: - `RawRepresentable` Static Constructor
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension RawRepresentable where RawValue == String {
     // This constructor must include the RawRepresentable metatype as the base when called.
     // For example:

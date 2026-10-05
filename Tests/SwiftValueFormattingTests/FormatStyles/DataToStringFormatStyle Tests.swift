@@ -16,6 +16,7 @@ import SwiftValueFormatting
 /// - Basic string formatting results
 @Suite
 struct DataToStringFormatStyle_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func concreteType_defaultEncoding() throws {
         // default uses Base64
@@ -25,6 +26,7 @@ struct DataToStringFormatStyle_Tests {
         #expect(format.format(Data([0x01, 0x02])) == "AQI=")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func staticConstructor_defaultEncoding() throws {
         // default uses Base64
@@ -32,12 +34,14 @@ struct DataToStringFormatStyle_Tests {
         #expect(formatted(Data([0x01, 0x02]), format: .string) == "AQI=")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func composition_encoding() throws {
         #expect(formatted(Data(), format: .string.encoding(.base64)) == "")
         #expect(formatted(Data([0x01, 0x02]), format: .string.encoding(.base64)) == "AQI=")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test(arguments: DataToStringFormatStyle.Encoding.allCases)
     func allEncodings_constructors(encoding: DataToStringFormatStyle.Encoding) throws {
         switch encoding {
@@ -49,6 +53,7 @@ struct DataToStringFormatStyle_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test(arguments: DataToStringFormatStyle.Encoding.allCases)
     func allEncodings_format(encoding: DataToStringFormatStyle.Encoding) throws {
         // use a switch case on allCases for compiler enforcement of testing all encodings
