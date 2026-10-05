@@ -38,7 +38,9 @@ func hasEnvironmentVariable(_ name: String) -> Bool {
 
 if hasEnvironmentVariable("GITHUB_ACTIONS") {
     for target in package.targets {
-        if target.swiftSettings == nil { target.swiftSettings = [] }
+        if target.swiftSettings == nil {
+            target.swiftSettings = []
+        }
         target.swiftSettings? += [.define("GITHUB_ACTIONS", .when(configuration: .debug))]
     }
 }

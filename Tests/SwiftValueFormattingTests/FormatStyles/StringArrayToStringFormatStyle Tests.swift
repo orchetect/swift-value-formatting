@@ -5,8 +5,8 @@
 //
 
 import Foundation
-import Testing
 import SwiftValueFormatting
+import Testing
 
 /// This suite tests:
 /// - `StringArrayToStringFormatStyle` static constructor
@@ -15,21 +15,21 @@ import SwiftValueFormatting
 struct StringArrayToStringFormatStyle_Tests {
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func staticConstructor_defaultSeparator() throws {
+    func staticConstructor_defaultSeparator() {
         #expect(formatted(["foo"], format: .string) == "foo")
         #expect(formatted(["foo", "bar"], format: .string) == "foo,bar")
     }
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func staticConstructor_customSeparator() throws {
+    func staticConstructor_customSeparator() {
         #expect(formatted(["foo"], format: .string(separator: "|")) == "foo")
         #expect(formatted(["foo", "bar"], format: .string(separator: "|")) == "foo|bar")
     }
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func separatorComposition() throws {
+    func separatorComposition() {
         #expect(formatted(["foo"], format: .string.separator("|")) == "foo")
         #expect(formatted(["foo", "bar"], format: .string.separator("|")) == "foo|bar")
     }

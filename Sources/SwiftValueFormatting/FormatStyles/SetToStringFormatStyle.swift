@@ -8,10 +8,9 @@ import Foundation
 
 /// Format style which flattens a set of values to a delimited string.
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
-public struct SetToStringFormatStyle<Element, Transform, Comparator>
-where Element: Hashable,
-      Transform: FormatStyle & Sendable, Transform.FormatInput == Element, Transform.FormatOutput == String,
-      Comparator: SortComparator<String> & Codable
+public struct SetToStringFormatStyle<Element: Hashable, Transform: FormatStyle & Sendable, Comparator: SortComparator<String> & Codable>
+    where Transform.FormatInput == Element, Transform.FormatOutput == String
+
 {
     /// Element separator.
     nonisolated
@@ -97,17 +96,19 @@ extension SetToStringFormatStyle {
     /// Modifies a format style to use the specified element sort comparator.
     @inlinable
     nonisolated
-    public func sortComparator<C>(_ newSortComparator: C) -> SetToStringFormatStyle<Element, Transform, C> where C: SortComparator<String> & Codable {
+    public func sortComparator<C: SortComparator<String> & Codable>(_ newSortComparator: C)
+        -> SetToStringFormatStyle<Element, Transform, C>
+    {
         .init(separator: separator, transform: transform, sortComparator: newSortComparator)
     }
 
     /// Modifies a format style to use the specified element transform.
     @inlinable
     nonisolated
-    public func transform<T>(
+    public func transform<T: FormatStyle & Sendable>(
         _ newTransform: T
     ) -> SetToStringFormatStyle<Element, T, Comparator>
-    where T: FormatStyle & Sendable, T.FormatInput == Element, T.FormatOutput == String
+        where T.FormatInput == Element, T.FormatOutput == String
     {
         .init(separator: separator, transform: newTransform, sortComparator: sortComparator)
     }
@@ -131,11 +132,11 @@ extension Set {
     /// Format style which flattens a set of values to a delimited string.
     @inlinable
     nonisolated
-    public static func stringFormatStyle<Transform>(
+    public static func stringFormatStyle<Transform: FormatStyle & Sendable>(
         separator: String = ",",
         transform: Transform
     ) -> SetToStringFormatStyle<Element, Transform, String.Comparator>
-    where Transform: FormatStyle & Sendable, Transform.FormatInput == Element, Transform.FormatOutput == String
+        where Transform.FormatInput == Element, Transform.FormatOutput == String
     {
         SetToStringFormatStyle(separator: separator, transform: transform)
     }
@@ -143,13 +144,13 @@ extension Set {
     /// Format style which flattens a set of values to a delimited string.
     @inlinable
     nonisolated
-    public static func stringFormatStyle<Transform, Comparator>(
+    public static func stringFormatStyle<Transform: FormatStyle & Sendable, Comparator: SortComparator<String> & Codable>(
         separator: String = ",",
         transform: Transform,
         sortComparator: Comparator
     ) -> SetToStringFormatStyle<Element, Transform, Comparator>
-    where Transform: FormatStyle & Sendable, Transform.FormatInput == Element, Transform.FormatOutput == String,
-          Comparator: SortComparator<String> & Codable
+        where Transform.FormatInput == Element, Transform.FormatOutput == String
+
     {
         SetToStringFormatStyle(separator: separator, transform: transform, sortComparator: sortComparator)
     }

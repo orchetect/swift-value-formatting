@@ -5,8 +5,8 @@
 //
 
 import Foundation
-import Testing
 import SwiftValueFormatting
+import Testing
 
 /// This suite tests:
 /// - `StringSetToStringFormatStyle` static constructor
@@ -15,7 +15,7 @@ import SwiftValueFormatting
 struct StringSetToStringFormatStyle_Tests {
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func concreteType_defaultSeparator() throws {
+    func concreteType_defaultSeparator() {
         let format = StringSetToStringFormatStyle()
 
         let a = formatted(Set(["b"]), format: format)
@@ -28,7 +28,7 @@ struct StringSetToStringFormatStyle_Tests {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func concreteType_customSeparator() throws {
+    func concreteType_customSeparator() {
         let format = StringSetToStringFormatStyle(separator: "|")
 
         let a = formatted(Set(["b"]), format: format)
@@ -41,7 +41,7 @@ struct StringSetToStringFormatStyle_Tests {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func staticConstructor_defaultSeparator() throws {
+    func staticConstructor_defaultSeparator() {
         let a = formatted(Set(["b"]), format: .string)
         let b = formatted(Set(["b", "b"]), format: .string)
         let c = formatted(Set(["b", "a"]), format: .string)
@@ -52,7 +52,7 @@ struct StringSetToStringFormatStyle_Tests {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func staticConstructor_customSeparator() throws {
+    func staticConstructor_customSeparator() {
         let a = formatted(Set(["b"]), format: .string(separator: "|"))
         let b = formatted(Set(["b", "b"]), format: .string(separator: "|"))
         let c = formatted(Set(["b", "a"]), format: .string(separator: "|"))
@@ -63,7 +63,7 @@ struct StringSetToStringFormatStyle_Tests {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test // TODO: might need to enable test only if locale language is English
-    func staticConstructor_customSortComparator() throws {
+    func staticConstructor_customSortComparator() {
         let a = formatted(Set(["b"]), format: .string(sortComparator: .unitTestComparator))
         let b = formatted(Set(["b", "b"]), format: .string(sortComparator: .unitTestComparator))
         let c = formatted(Set(["c", "a", "b"]), format: .string(sortComparator: .unitTestComparator))
@@ -74,7 +74,7 @@ struct StringSetToStringFormatStyle_Tests {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test // TODO: might need to enable test only if locale language is English
-    func staticConstructor_customSeparator_customSortComparator() throws {
+    func staticConstructor_customSeparator_customSortComparator() {
         let a = formatted(Set(["b"]), format: .string(separator: "|", sortComparator: .unitTestComparator))
         let b = formatted(Set(["b", "b"]), format: .string(separator: "|", sortComparator: .unitTestComparator))
         let c = formatted(Set(["c", "a", "b"]), format: .string(separator: "|", sortComparator: .unitTestComparator))
@@ -85,7 +85,7 @@ struct StringSetToStringFormatStyle_Tests {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func composition_separator() throws {
+    func composition_separator() {
         let a = formatted(Set(["b"]), format: .string.separator("|"))
         let b = formatted(Set(["b", "b"]), format: .string.separator("|"))
         let c = formatted(Set(["b", "a"]), format: .string.separator("|"))
@@ -96,7 +96,7 @@ struct StringSetToStringFormatStyle_Tests {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test // TODO: might need to enable test only if locale language is English
-    func composition_separator_sortComparator() throws {
+    func composition_separator_sortComparator() {
         let string = formatted(Set(["c", "a", "b"]), format: .string.separator("|").sortComparator(.unitTestComparator))
         #expect(string == "a|b|c")
     }

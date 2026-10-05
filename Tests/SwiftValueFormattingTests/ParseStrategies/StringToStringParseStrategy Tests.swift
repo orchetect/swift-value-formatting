@@ -4,8 +4,8 @@
 //  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
-import Testing
 import SwiftValueFormatting
+import Testing
 
 /// This suite tests:
 /// - `StringToStringParseStrategy`:
@@ -23,21 +23,21 @@ struct StringToStringParseStrategy_Tests {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func init_options() throws {
+    func init_options() {
         #expect(StringToStringParseStrategy(options: []).options == [])
         #expect(StringToStringParseStrategy(options: [.rejectEmpty]).options == [.rejectEmpty])
     }
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func staticConstructors() throws {
+    func staticConstructors() {
         #expect(StringToStringParseStrategy.string(options: []).options == [])
         #expect(StringToStringParseStrategy.string(options: [.rejectEmpty]).options == [.rejectEmpty])
     }
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func optionsComposition() throws {
+    func optionsComposition() {
         #expect(StringToStringParseStrategy.string.options([]).options == [])
         #expect(StringToStringParseStrategy.string.options([.rejectEmpty]).options == [.rejectEmpty])
     }

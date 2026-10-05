@@ -5,8 +5,8 @@
 //
 
 import Foundation
-import Testing
 import SwiftValueFormatting
+import Testing
 
 @Suite
 struct Parseable_Tests {

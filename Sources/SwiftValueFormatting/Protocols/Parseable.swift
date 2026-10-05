@@ -7,7 +7,7 @@
 import Foundation
 
 /// Implements a standard form of the `init(_:strategy:)` initializer to parse a value type using a `ParseStrategy`.
-///  
+///
 /// This allows formatting custom types in a more Swift-friendly way by mimicking the data parsing paradigm
 /// Foundation establishes when using `ParseStrategy`.
 ///

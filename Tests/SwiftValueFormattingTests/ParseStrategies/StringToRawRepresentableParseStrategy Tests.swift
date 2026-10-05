@@ -5,8 +5,8 @@
 //
 
 import Foundation
-import Testing
 import SwiftValueFormatting
+import Testing
 
 /// This suite tests:
 /// - `StringToRawRepresentableParseStrategy` static constructors

@@ -4,8 +4,8 @@
 //  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
-import Testing
 import SwiftValueFormatting
+import Testing
 
 /// This suite tests:
 /// - `[Type]` static constructors
@@ -85,6 +85,5 @@ struct StringToArrayParseStrategy_Tests {
         #expect(try parsed("1", strategy: [Int].stringParseStrategy(transform: .int).separator("|")) == [1])
         #expect(try parsed("1|2", strategy: [Int].stringParseStrategy(transform: .int).separator("|")) == [1, 2])
         #expect(try parsed("3|1|2", strategy: [Int].stringParseStrategy(transform: .int).separator("|")) == [3, 1, 2])
-
     }
 }

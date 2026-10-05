@@ -4,8 +4,8 @@
 //  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
-import Testing
 import SwiftValueFormatting
+import Testing
 
 /// This suite tests:
 /// - `StringToStringFormatStyle` static constructors
@@ -14,7 +14,7 @@ import SwiftValueFormatting
 struct StringToStringFormatStyle_Tests {
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func string() throws {
+    func string() {
         #expect(formatted("", format: .string) == "")
         #expect(formatted("foo", format: .string) == "foo")
     }

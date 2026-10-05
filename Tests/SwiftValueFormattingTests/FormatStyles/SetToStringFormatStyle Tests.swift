@@ -5,8 +5,8 @@
 //
 
 import Foundation
-import Testing
 import SwiftValueFormatting
+import Testing
 
 /// This suite tests:
 /// - `Set<Type>` static constructor
@@ -18,7 +18,7 @@ import SwiftValueFormatting
 struct SetToStringFormatStyle_Tests {
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func concreteType_defaultSeparator() throws {
+    func concreteType_defaultSeparator() {
         let format = SetToStringFormatStyle(of: Int.self, transform: .string)
 
         #expect(formatted([] as Set<Int>, format: format) == "")
@@ -31,7 +31,7 @@ struct SetToStringFormatStyle_Tests {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func concreteType_customSeparator() throws {
+    func concreteType_customSeparator() {
         let format = SetToStringFormatStyle(of: Int.self, separator: "|", transform: .string)
 
         #expect(formatted([] as Set<Int>, format: format) == "")
@@ -44,7 +44,7 @@ struct SetToStringFormatStyle_Tests {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func concreteStatic_defaultSeparator() throws {
+    func concreteStatic_defaultSeparator() {
         #expect(formatted([] as Set<Int>, format: Set<Int>.stringFormatStyle(transform: .string)) == "")
 
         #expect(formatted(Set([1]), format: Set<Int>.stringFormatStyle(transform: .string)) == "1")
@@ -55,7 +55,7 @@ struct SetToStringFormatStyle_Tests {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func concreteStatic_customSeparator() throws {
+    func concreteStatic_customSeparator() {
         #expect(formatted([] as Set<Int>, format: Set<Int>.stringFormatStyle(separator: "|", transform: .string)) == "")
 
         #expect(formatted(Set([1]), format: Set<Int>.stringFormatStyle(separator: "|", transform: .string)) == "1")
@@ -66,7 +66,7 @@ struct SetToStringFormatStyle_Tests {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func composition_separator() throws {
+    func composition_separator() {
         #expect(formatted([] as Set<Int>, format: Set<Int>.stringFormatStyle(transform: .string).separator("|")) == "")
 
         #expect(formatted(Set([1]), format: Set<Int>.stringFormatStyle(transform: .string).separator("|")) == "1")

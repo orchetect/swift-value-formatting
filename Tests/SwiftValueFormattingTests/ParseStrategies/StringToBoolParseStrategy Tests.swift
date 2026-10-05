@@ -4,8 +4,8 @@
 //  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
-import Testing
 import SwiftValueFormatting
+import Testing
 
 /// This suite tests:
 /// - `StringToBoolParseStrategy`:
@@ -23,21 +23,21 @@ struct StringToBoolParseStrategy_Tests {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func init_options() throws {
+    func init_options() {
         #expect(StringToBoolParseStrategy(options: []).options == [])
         #expect(StringToBoolParseStrategy(options: [.allowOutOfBoundsNumbers]).options == [.allowOutOfBoundsNumbers])
     }
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func staticConstructors() throws {
+    func staticConstructors() {
         #expect(StringToBoolParseStrategy.bool(options: []).options == [])
         #expect(StringToBoolParseStrategy.bool(options: [.allowOutOfBoundsNumbers]).options == [.allowOutOfBoundsNumbers])
     }
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func optionsComposition() throws {
+    func optionsComposition() {
         #expect(StringToBoolParseStrategy.bool.options([]).options == [])
         #expect(StringToBoolParseStrategy.bool.options([.allowOutOfBoundsNumbers]).options == [.allowOutOfBoundsNumbers])
     }
@@ -222,7 +222,7 @@ struct StringToBoolParseStrategy_Tests {
         #expect(try parsed("0.0", strategy: .bool(options: options)) == false)
         #expect(try parsed("1.00", strategy: .bool(options: options)) == true)
         #expect(try parsed("0.00", strategy: .bool(options: options)) == false)
-        
+
         #expect(throws: ParseStrategyError.parseError) {
             _ = try parsed("", strategy: .bool(options: options))
         }

@@ -5,8 +5,8 @@
 //
 
 import Foundation
-import Testing
 import SwiftValueFormatting
+import Testing
 
 @Suite
 struct Formattable_Tests {
@@ -18,40 +18,40 @@ struct Formattable_Tests {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func builtIn_Decimal() throws {
+    func builtIn_Decimal() {
         #expect(
             Decimal(1.23)
                 .formatted(.percent.locale(.init(identifier: "en-US")))
-            == "123%"
+                == "123%"
         )
     }
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func builtIn_String() throws {
+    func builtIn_String() {
         #expect("foo".formatted(.string) == "foo")
     }
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func builtIn_Array() throws {
+    func builtIn_Array() {
         #expect(
             [1, 2]
                 .formatted(
                     .list(memberStyle: .string, type: .and)
-                    .locale(.init(identifier: "en-US"))
+                        .locale(.init(identifier: "en-US"))
                 )
-            == "1 and 2"
+                == "1 and 2"
         )
     }
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func builtIn_Set() throws {
+    func builtIn_Set() {
         let formattedSet = Set([1, 2])
             .formatted(
                 .list(memberStyle: .string, type: .and)
-                .locale(.init(identifier: "en-US"))
+                    .locale(.init(identifier: "en-US"))
             )
         #expect(formattedSet == "1 and 2" || formattedSet == "2 and 1")
     }

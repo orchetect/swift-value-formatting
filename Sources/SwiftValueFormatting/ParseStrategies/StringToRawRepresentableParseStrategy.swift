@@ -8,7 +8,7 @@ import Foundation
 
 /// Parse strategy which converts a `String` value to a `RawRepresentable` value whose raw value is `String`.
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
-public struct StringToRawRepresentableParseStrategy<ParseOutput> where ParseOutput: RawRepresentable, ParseOutput.RawValue == String {
+public struct StringToRawRepresentableParseStrategy<ParseOutput: RawRepresentable> where ParseOutput.RawValue == String {
     @inlinable
     nonisolated
     public init() { }

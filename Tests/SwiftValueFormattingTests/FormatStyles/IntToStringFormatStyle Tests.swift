@@ -4,8 +4,8 @@
 //  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
-import Testing
 import SwiftValueFormatting
+import Testing
 
 /// This suite tests:
 /// - `IntToStringFormatStyle` static constructors
@@ -14,61 +14,61 @@ import SwiftValueFormatting
 struct IntToStringFormatStyle_Tests {
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func int() throws {
+    func int() {
         #expect(formatted(123 as Int, format: .string) == "123")
     }
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func int8() throws {
+    func int8() {
         #expect(formatted(123 as Int8, format: .string) == "123")
     }
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func int16() throws {
+    func int16() {
         #expect(formatted(123 as Int16, format: .string) == "123")
     }
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func int32() throws {
+    func int32() {
         #expect(formatted(123 as Int32, format: .string) == "123")
     }
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func int64() throws {
+    func int64() {
         #expect(formatted(123 as Int64, format: .string) == "123")
     }
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func uInt() throws {
+    func uInt() {
         #expect(formatted(123 as UInt, format: .string) == "123")
     }
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func uInt8() throws {
+    func uInt8() {
         #expect(formatted(123 as UInt8, format: .string) == "123")
     }
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func uInt16() throws {
+    func uInt16() {
         #expect(formatted(123 as UInt16, format: .string) == "123")
     }
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func uInt32() throws {
+    func uInt32() {
         #expect(formatted(123 as UInt32, format: .string) == "123")
     }
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func uInt64() throws {
+    func uInt64() {
         #expect(formatted(123 as UInt64, format: .string) == "123")
     }
 }

@@ -5,8 +5,8 @@
 //
 
 import Foundation
-import Testing
 import SwiftValueFormatting
+import Testing
 
 /// This suite tests:
 /// - `StringToDataParseStrategy`:
@@ -47,7 +47,7 @@ struct StringToDataParseStrategy_Tests {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test(arguments: StringToDataParseStrategy.Encoding.allCases)
-    func allEncodings_constructors(encoding: StringToDataParseStrategy.Encoding) throws {
+    func allEncodings_constructors(encoding: StringToDataParseStrategy.Encoding) {
         switch encoding {
         case .base64:
             // struct init

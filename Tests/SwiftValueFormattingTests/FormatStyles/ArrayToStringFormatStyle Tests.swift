@@ -5,8 +5,8 @@
 //
 
 import Foundation
-import Testing
 import SwiftValueFormatting
+import Testing
 
 /// This suite tests:
 /// - `[Type]` static constructor
@@ -18,7 +18,7 @@ import SwiftValueFormatting
 struct ArrayToStringFormatStyle_Tests {
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func concreteType_defaultSeparator() throws {
+    func concreteType_defaultSeparator() {
         let format = ArrayToStringFormatStyle(of: Int.self, transform: .string)
 
         #expect(formatted([] as [Int], format: format) == "")
@@ -28,7 +28,7 @@ struct ArrayToStringFormatStyle_Tests {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func concreteType_customSeparator() throws {
+    func concreteType_customSeparator() {
         let format = ArrayToStringFormatStyle(of: Int.self, separator: "|", transform: .string)
 
         #expect(formatted([] as [Int], format: format) == "")
@@ -38,7 +38,7 @@ struct ArrayToStringFormatStyle_Tests {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func concreteStatic_defaultSeparator() throws {
+    func concreteStatic_defaultSeparator() {
         #expect(formatted([] as [Int], format: [Int].stringFormatStyle(transform: .string)) == "")
         #expect(formatted([1], format: [Int].stringFormatStyle(transform: .string)) == "1")
         #expect(formatted([3, 1, 2], format: [Int].stringFormatStyle(transform: .string)) == "3,1,2")
@@ -46,7 +46,7 @@ struct ArrayToStringFormatStyle_Tests {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func concreteStatic_customSeparator() throws {
+    func concreteStatic_customSeparator() {
         #expect(formatted([] as [Int], format: [Int].stringFormatStyle(separator: "|", transform: .string)) == "")
         #expect(formatted([1], format: [Int].stringFormatStyle(separator: "|", transform: .string)) == "1")
         #expect(formatted([3, 1, 2], format: [Int].stringFormatStyle(separator: "|", transform: .string)) == "3|1|2")
@@ -54,7 +54,7 @@ struct ArrayToStringFormatStyle_Tests {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func separatorComposition() throws {
+    func separatorComposition() {
         #expect(formatted([] as [Int], format: [Int].stringFormatStyle(transform: .string).separator("|")) == "")
         #expect(formatted([1], format: [Int].stringFormatStyle(transform: .string).separator("|")) == "1")
         #expect(formatted([3, 1, 2], format: [Int].stringFormatStyle(transform: .string).separator("|")) == "3|1|2")

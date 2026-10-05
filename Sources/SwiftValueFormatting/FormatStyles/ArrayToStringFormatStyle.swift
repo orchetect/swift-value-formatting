@@ -8,8 +8,8 @@ import Foundation
 
 /// Format style which flattens an array of values to a delimited string.
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
-public struct ArrayToStringFormatStyle<Element, Transform>
-where Transform: FormatStyle & Sendable, Transform.FormatInput == Element, Transform.FormatOutput == String
+public struct ArrayToStringFormatStyle<Element, Transform: FormatStyle & Sendable>
+    where Transform.FormatInput == Element, Transform.FormatOutput == String
 {
     /// Element separator.
     nonisolated
@@ -56,10 +56,10 @@ extension ArrayToStringFormatStyle {
     /// Modifies a format style to use the specified element transform.
     @inlinable
     nonisolated
-    public func transform<T>(
+    public func transform<T: FormatStyle & Sendable>(
         _ newTransform: T
     ) -> ArrayToStringFormatStyle<Element, T>
-    where T: FormatStyle & Sendable, T.FormatInput == Element, T.FormatOutput == String
+        where T.FormatInput == Element, T.FormatOutput == String
     {
         .init(separator: separator, transform: newTransform)
     }
@@ -83,11 +83,11 @@ extension Array {
     /// Format style which flattens an array of values to a delimited string.
     @inlinable
     nonisolated
-    public static func stringFormatStyle<Transform>(
+    public static func stringFormatStyle<Transform: FormatStyle & Sendable>(
         separator: String = ",",
         transform: Transform
     ) -> ArrayToStringFormatStyle<Element, Transform>
-    where Transform: FormatStyle & Sendable, Transform.FormatInput == Element, Transform.FormatOutput == String
+        where Transform.FormatInput == Element, Transform.FormatOutput == String
     {
         ArrayToStringFormatStyle(separator: separator, transform: transform)
     }

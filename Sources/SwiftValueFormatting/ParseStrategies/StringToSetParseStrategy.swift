@@ -8,9 +8,8 @@ import Foundation
 
 /// Parse strategy which parses a delimited a `String` value and produces a set of values.
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
-public struct StringToSetParseStrategy<Element, Transform>
-where Element: Hashable,
-      Transform: ParseStrategy & Sendable, Transform.ParseInput == String, Transform.ParseOutput == Element
+public struct StringToSetParseStrategy<Element: Hashable, Transform: ParseStrategy & Sendable>
+    where Transform.ParseInput == String, Transform.ParseOutput == Element
 {
     /// Element separator.
     nonisolated
@@ -62,10 +61,10 @@ extension StringToSetParseStrategy {
     /// Modifies a parse strategy to use the specified element transform.
     @inlinable
     nonisolated
-    public func transform<T>(
+    public func transform<T: ParseStrategy & Sendable>(
         _ newTransform: T
     ) -> StringToSetParseStrategy<Element, T>
-    where T: ParseStrategy & Sendable, T.ParseInput == String, T.ParseOutput == Element
+        where T.ParseInput == String, T.ParseOutput == Element
     {
         .init(separator: separator, transform: newTransform)
     }
@@ -89,11 +88,11 @@ extension Set {
     /// Parse strategy which parses a delimited a `String` value and produces a set of values.
     @inlinable
     nonisolated
-    public static func stringParseStrategy<Transform>(
+    public static func stringParseStrategy<Transform: ParseStrategy & Sendable>(
         separator: String = ",",
         transform: Transform
     ) -> StringToSetParseStrategy<Element, Transform>
-    where Transform: ParseStrategy & Sendable, Transform.ParseInput == String, Transform.ParseOutput == Element
+        where Transform.ParseInput == String, Transform.ParseOutput == Element
     {
         StringToSetParseStrategy(separator: separator, transform: transform)
     }

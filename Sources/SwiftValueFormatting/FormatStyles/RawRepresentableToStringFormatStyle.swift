@@ -8,7 +8,7 @@ import Foundation
 
 /// Format style which converts a `RawRepresentable` value whose raw value is `String` to its raw value.
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
-public struct RawRepresentableToStringFormatStyle<FormatInput> where FormatInput: RawRepresentable, FormatInput.RawValue == String {
+public struct RawRepresentableToStringFormatStyle<FormatInput: RawRepresentable> where FormatInput.RawValue == String {
     @inlinable
     nonisolated
     public init() { }

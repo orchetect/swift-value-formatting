@@ -8,7 +8,7 @@ import Foundation
 
 /// Format style which flattens a set of values to a delimited string.
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
-public struct StringSetToStringFormatStyle<Comparator> where Comparator: SortComparator<String> & Codable {
+public struct StringSetToStringFormatStyle<Comparator: SortComparator<String> & Codable> {
     /// Element separator.
     nonisolated
     public var separator: String
@@ -69,7 +69,7 @@ extension StringSetToStringFormatStyle {
     /// Modifies a format style to use the specified element sort comparator.
     @inlinable
     nonisolated
-    public func sortComparator<C>(_ newSortComparator: C) -> StringSetToStringFormatStyle<C> where C: SortComparator<String> & Codable {
+    public func sortComparator<C: SortComparator<String> & Codable>(_ newSortComparator: C) -> StringSetToStringFormatStyle<C> {
         .init(separator: separator, sortComparator: newSortComparator)
     }
 }
