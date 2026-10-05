@@ -64,9 +64,9 @@ struct StringSetToStringFormatStyle_Tests {
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test // TODO: might need to enable test only if locale language is English
     func staticConstructor_customSortComparator() throws {
-        let a = formatted(Set(["b"]), format: .string(sortComparator: .localized))
-        let b = formatted(Set(["b", "b"]), format: .string(sortComparator: .localized))
-        let c = formatted(Set(["c", "a", "b"]), format: .string(sortComparator: .localized))
+        let a = formatted(Set(["b"]), format: .string(sortComparator: .unitTestComparator))
+        let b = formatted(Set(["b", "b"]), format: .string(sortComparator: .unitTestComparator))
+        let c = formatted(Set(["c", "a", "b"]), format: .string(sortComparator: .unitTestComparator))
         #expect(a == "b")
         #expect(b == "b")
         #expect(c == "a,b,c")
@@ -75,9 +75,9 @@ struct StringSetToStringFormatStyle_Tests {
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test // TODO: might need to enable test only if locale language is English
     func staticConstructor_customSeparator_customSortComparator() throws {
-        let a = formatted(Set(["b"]), format: .string(separator: "|", sortComparator: .localized))
-        let b = formatted(Set(["b", "b"]), format: .string(separator: "|", sortComparator: .localized))
-        let c = formatted(Set(["c", "a", "b"]), format: .string(separator: "|", sortComparator: .localized))
+        let a = formatted(Set(["b"]), format: .string(separator: "|", sortComparator: .unitTestComparator))
+        let b = formatted(Set(["b", "b"]), format: .string(separator: "|", sortComparator: .unitTestComparator))
+        let c = formatted(Set(["c", "a", "b"]), format: .string(separator: "|", sortComparator: .unitTestComparator))
         #expect(a == "b")
         #expect(b == "b")
         #expect(c == "a|b|c")
@@ -97,7 +97,7 @@ struct StringSetToStringFormatStyle_Tests {
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test // TODO: might need to enable test only if locale language is English
     func composition_separator_sortComparator() throws {
-        let string = formatted(Set(["c", "a", "b"]), format: .string.separator("|").sortComparator(.localized))
+        let string = formatted(Set(["c", "a", "b"]), format: .string.separator("|").sortComparator(.unitTestComparator))
         #expect(string == "a|b|c")
     }
 }
