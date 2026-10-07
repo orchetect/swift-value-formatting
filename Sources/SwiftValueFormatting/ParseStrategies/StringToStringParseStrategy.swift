@@ -32,7 +32,7 @@ extension StringToStringParseStrategy: Sendable { }
 extension StringToStringParseStrategy: ParseStrategy {
     nonisolated
     public func parse(_ value: String) throws -> String {
-        if options.contains(.rejectEmpty),
+        if !options.contains(.allowEmpty),
            value.isEmpty
         {
             throw ParseStrategyError.parseError
@@ -51,9 +51,9 @@ extension StringToStringParseStrategy: ParseStrategy {
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension StringToStringParseStrategy {
     public enum ParseOption: String, Equatable, Hashable, Sendable, Codable {
-        /// Reject empty strings.
+        /// Allow empty strings.
         /// A string is considered empty if it contains zero characters.
-        case rejectEmpty
+        case allowEmpty
 
         /// Reject strings that are entirely comprised of whitespaces.
         case rejectWhitespaceOnly
