@@ -9,7 +9,7 @@ import Testing
 
 /// This suite tests:
 /// - `PassThruFormatStyle` static constructors
-/// - Basic string formatting results
+/// - Basic formatting results
 @Suite
 struct PassThruFormatStyle_Tests {
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
