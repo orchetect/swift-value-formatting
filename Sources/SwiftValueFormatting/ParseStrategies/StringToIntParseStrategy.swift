@@ -58,7 +58,7 @@ extension StringToIntParseStrategy: ParseStrategy {
 
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension StringToIntParseStrategy {
-    public enum ParseOption: String, Equatable, Hashable, Sendable, Codable {
+    public enum ParseOption: String, Equatable, Hashable, Codable, CaseIterable, Sendable {
         /// Allow parsing strings that contain non-whole number floating-point values.
         case allowNonWholeFloats
 

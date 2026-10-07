@@ -44,7 +44,7 @@ extension DataToStringFormatStyle: FormatStyle {
 
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension DataToStringFormatStyle {
-    public enum Encoding: String, Equatable, Hashable, Sendable, Codable, CaseIterable {
+    public enum Encoding: String, Equatable, Hashable, Codable, CaseIterable, Sendable {
         /// Base64 encoding.
         case base64
     }

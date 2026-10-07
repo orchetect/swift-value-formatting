@@ -50,7 +50,7 @@ extension StringToStringParseStrategy: ParseStrategy {
 
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension StringToStringParseStrategy {
-    public enum ParseOption: String, Equatable, Hashable, Sendable, Codable {
+    public enum ParseOption: String, Equatable, Hashable, Codable, CaseIterable, Sendable {
         /// Allow empty strings.
         /// A string is considered empty if it contains zero characters.
         case allowEmpty
