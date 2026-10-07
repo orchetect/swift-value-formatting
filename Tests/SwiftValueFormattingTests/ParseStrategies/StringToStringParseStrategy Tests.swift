@@ -25,27 +25,47 @@ struct StringToStringParseStrategy_Tests {
     @Test
     func init_options() {
         #expect(StringToStringParseStrategy(options: []).options == [])
-        #expect(StringToStringParseStrategy(options: [.rejectEmpty]).options == [.rejectEmpty])
+        #expect(StringToStringParseStrategy(options: [.allowEmpty]).options == [.allowEmpty])
     }
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func staticConstructors() {
         #expect(StringToStringParseStrategy.string(options: []).options == [])
-        #expect(StringToStringParseStrategy.string(options: [.rejectEmpty]).options == [.rejectEmpty])
+        #expect(StringToStringParseStrategy.string(options: [.allowEmpty]).options == [.allowEmpty])
     }
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func optionsComposition() {
         #expect(StringToStringParseStrategy.string.options([]).options == [])
-        #expect(StringToStringParseStrategy.string.options([.rejectEmpty]).options == [.rejectEmpty])
+        #expect(StringToStringParseStrategy.string.options([.allowEmpty]).options == [.allowEmpty])
     }
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func string_noOptions() throws {
-        let options: Set<StringToStringParseStrategy.ParseOption> = []
+        let options: Set<StringToStringParseStrategy.ParseOption> = [] // reject empty, reject whitespace-only
+
+        #expect(throws: ParseStrategyError.parseError) {
+            _ = try parsed("", strategy: .string(options: options))
+        }
+        #expect(throws: ParseStrategyError.parseError) {
+            try parsed(" ", strategy: .string(options: options))
+        }
+        #expect(throws: ParseStrategyError.parseError) {
+            try parsed(" \t ", strategy: .string(options: options))
+        }
+        #expect(throws: ParseStrategyError.parseError) {
+            try parsed(" \t\n ", strategy: .string(options: options))
+        }
+        #expect(try parsed(" abc 123 !@#$%^&*() ", strategy: .string(options: options)) == " abc 123 !@#$%^&*() ")
+    }
+
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
+    @Test
+    func string_allOptions() throws {
+        let options: Set<StringToStringParseStrategy.ParseOption> = [.allowEmpty, .allowWhitespaceOnly]
 
         #expect(try parsed("", strategy: .string(options: options)) == "")
         #expect(try parsed(" ", strategy: .string(options: options)) == " ")
@@ -56,8 +76,8 @@ struct StringToStringParseStrategy_Tests {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func string_rejectEmpty() throws {
-        let options: Set<StringToStringParseStrategy.ParseOption> = [.rejectEmpty]
+    func string_allowWhitespaceOnly() throws {
+        let options: Set<StringToStringParseStrategy.ParseOption> = [.allowWhitespaceOnly]
 
         #expect(throws: ParseStrategyError.parseError) {
             _ = try parsed("", strategy: .string(options: options))
@@ -70,8 +90,8 @@ struct StringToStringParseStrategy_Tests {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
-    func string_rejectWhitespaceOnly() throws {
-        let options: Set<StringToStringParseStrategy.ParseOption> = [.rejectWhitespaceOnly]
+    func string_allowEmpty() throws {
+        let options: Set<StringToStringParseStrategy.ParseOption> = [.allowEmpty]
 
         #expect(throws: ParseStrategyError.parseError) {
             _ = try parsed("", strategy: .string(options: options))
