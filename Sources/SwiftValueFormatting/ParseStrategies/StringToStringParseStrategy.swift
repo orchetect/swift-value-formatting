@@ -37,7 +37,7 @@ extension StringToStringParseStrategy: ParseStrategy {
         {
             throw ParseStrategyError.parseError
         }
-        if options.contains(.rejectWhitespaceOnly),
+        if !options.contains(.allowWhitespaceOnly),
            value.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         {
             throw ParseStrategyError.parseError
@@ -55,8 +55,8 @@ extension StringToStringParseStrategy {
         /// A string is considered empty if it contains zero characters.
         case allowEmpty
 
-        /// Reject strings that are entirely comprised of whitespaces.
-        case rejectWhitespaceOnly
+        /// Allow strings that are entirely comprised of whitespaces.
+        case allowWhitespaceOnly
     }
 }
 
