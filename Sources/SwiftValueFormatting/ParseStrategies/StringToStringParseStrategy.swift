@@ -20,7 +20,7 @@ public struct StringToStringParseStrategy {
     ///     All input strings are considered valid unless one or more parse options are present.
     @inlinable
     nonisolated
-    public init(options: Set<ParseOption> = []) {
+    public init(options: Set<ParseOption> = [.allowEmpty, .allowWhitespaceOnly]) {
         self.options = options
     }
 }
@@ -94,7 +94,7 @@ extension ParseStrategy where Self == StringToStringParseStrategy {
     ///     All input strings are considered valid unless one or more parse options are present.
     @inlinable
     nonisolated
-    public static func string(options: Set<Self.ParseOption> = []) -> Self {
+    public static func string(options: Set<Self.ParseOption> = [.allowEmpty, .allowWhitespaceOnly]) -> Self {
         Self(options: options)
     }
 }
